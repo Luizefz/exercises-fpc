@@ -4,7 +4,8 @@ casas_binarias = [4294967296, 2147483648, 1073741824, 536870912, 268435456, 1342
 
 num_01_casas = []
 num_02_casas = []
-num_03_casas = []
+num_soma_casas = []
+num_soma_decimal = 0
 
 for i in casas_binarias:
         num_01_casas.append(int(num_decimais[0]/i)) # pega o inteiro da divisão do numero digitado, pelos resultados das elevacoes na base 2
@@ -15,8 +16,13 @@ for i in casas_binarias:
 
 for casa_num_01, casa_num_02 in zip(num_01_casas, num_02_casas):
     if casa_num_01 == casa_num_02: # faz um XOR comparando os 2 elementos de mesmo indice das listas
-        num_03_casas.append(0)
+        num_soma_casas.append(0)
     else:
-        num_03_casas.append(1)
+        num_soma_casas.append(1)
 
-print(f'  {num_01_casas}\n+ {num_02_casas}\n  {num_03_casas}')
+for casa_num_soma, casas_num_binario in zip(num_soma_casas, casas_binarias):
+     if casa_num_soma == 1:
+          num_soma_decimal += casas_num_binario
+
+
+print(f'  {num_01_casas}\n+ {num_02_casas}\n  {num_soma_casas}\n  {num_soma_decimal}')
