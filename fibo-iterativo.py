@@ -1,6 +1,6 @@
 def fib(num):
     a, b = 0, 1 # Pega os dois valores anteriores e soma, depois pega o valor da soma e soma com o valor anterior[...]
-    for i in range(2, num + 1):
+    for _ in range(2, num + 1):
         soma = a + b
         a, b = b, soma
 
