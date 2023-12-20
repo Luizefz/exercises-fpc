@@ -30,23 +30,13 @@ for i in id_navio:
         if i == j:
             continue
 
-        elif posicoes_navio[i][0][0] == posicoes_navio[j][0][0] and posicoes_navio[i][0][1] - posicoes_navio[j][0][1] == 1: # Verifica se os navios estao na mesma linha e se estao um do lado do outro
+        elif posicoes_navio[i][0][0] == posicoes_navio[j][0][0] and abs(posicoes_navio[i][0][1] - posicoes_navio[j][0][1]) == 1: # Verifica se os navios estao na mesma linha e se estao um do lado do outro
             posicoes_navio[i].extend(posicoes_navio[j])  # Adiciona os navios ques estão juntos em um dicionario
-            navio_concatenados.append(j)
 
-        elif posicoes_navio[i][0][1] == posicoes_navio[j][0][1] and posicoes_navio[i][0][0] - posicoes_navio[j][0][0] == 1:
+        elif posicoes_navio[i][0][1] == posicoes_navio[j][0][1] and abs(posicoes_navio[i][0][0] - posicoes_navio[j][0][0]) == 1:
             posicoes_navio[i].extend(posicoes_navio[j])
-            navio_concatenados.append(j)
 
-"""
-Se a condição der verdadeira e o navio for concatenado, eu adiciono as cordenadas do navio dentro da sua respectiva lista no dicionario.
-e retiro nas redundancias deletando o navio que foi concatenado que estava solto na lista geral.
-"""
 
-for i in navio_concatenados: # Remove os navios que foram concatenados da lista principal
-    del posicoes_navio[i]
-
-print(posicoes_navio)
 """
 Verifica se o tiro se encaixa em alguma das posições que estão os navios no dicionario. Se sim, ele retira o navio da lista de concatenação do dicionario.
 """
@@ -55,8 +45,6 @@ for i in tiros:
         if (i[0]-1, i[1]-1) in array_posicoes: # Bypass da matriz, pois a matriz começa em 0 e o jogo em 1
             print("Acertou", id_navio)
             posicoes_navio[id_navio].remove((i[0]-1, i[1]-1))
-
-print(posicoes_navio)
 
 """
 Faz a contagem de quantos navios foram afundados olhando quantas lista de navios não possuem mais elementos.
