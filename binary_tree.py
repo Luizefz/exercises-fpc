@@ -2,7 +2,7 @@ class Node:
     def __init__(self, data) -> None:
         self.data = data
         self.left = None
-        self.rigth = None
+        self.right = None
         self.father = None
 
 class Tree:
@@ -57,7 +57,7 @@ class Tree:
             self.read_in_order(self.get_right(node))
             
     def read_pos_order(self, node):
-        if (node != node):
+        if (node != None):
             self.read_pos_order(self.get_right(node))
             self.read_pos_order(self.get_left(node))
             print(self.get_data(node))
